@@ -152,10 +152,10 @@ namespace QuestPatcher.Core
             using var apkStream = File.OpenRead(_currentlyInstalledPath);
             await using var apk = await ApkZip.OpenAsync(apkStream);
 
-            if (apk.ContainsFile("lib/arm64-v8a/libfrda.so") || apk.ContainsFile("lib/arm64-v8a/libscript.so"))
-            {
-                throw new GameIsCrackedException("Game is cracked!");
-            }
+            /// if (apk.ContainsFile("lib/arm64-v8a/libfrda.so") || apk.ContainsFile("lib/arm64-v8a/libscript.so"))
+            /// {
+            ///     throw new GameIsCrackedException("Game is cracked!");
+            /// }
 
             var modloader = await GetModLoader(apk);
             string version = await GetApkVersion(apk);
